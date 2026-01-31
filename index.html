@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option Value Calculator — Quantify the Value of Parallel Exploration</title>
+    <meta name="description" content="Calculate the business value of AI-enabled parallel exploration using real options theory.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Option Value Calculator">
+    <meta property="og:description" content="Quantify the business value of parallel exploration with AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <span class="logo">Option Value</span>
+                <nav class="nav">
+                    <a href="#theory">Theory</a>
+                    <a href="#calculator">Calculator</a>
+                    <a href="#cases">Case Studies</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-kicker">Real Options Theory for Software Development</p>
+                <h1 class="hero-headline">The Hidden Value of<br>Exploring in Parallel</h1>
+                <p class="hero-subhead">
+                    AI has changed the economics of exploration. Running multiple approaches
+                    in parallel now costs pennies — but the value of that optionality is
+                    often worth thousands. Here's how to calculate it.
+                </p>
+                <a href="#calculator" class="hero-cta">Try the Calculator</a>
+            </div>
+            <div class="hero-visual">
+                <svg viewBox="0 0 400 300" class="option-tree">
+                    <!-- Main trunk -->
+                    <path d="M200 280 L200 180" stroke="currentColor" stroke-width="3" fill="none"/>
+                    <!-- First branch level -->
+                    <path d="M200 180 L100 100" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                    <path d="M200 180 L200 80" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                    <path d="M200 180 L300 100" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                    <!-- Second branch level - left -->
+                    <path d="M100 100 L60 40" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M100 100 L120 35" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
+                    <!-- Second branch level - center -->
+                    <path d="M200 80 L170 25" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M200 80 L230 25" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
+                    <!-- Second branch level - right -->
+                    <path d="M300 100 L280 35" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
+                    <path d="M300 100 L340 40" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
+                    <!-- Nodes -->
+                    <circle cx="200" cy="180" r="8" fill="currentColor"/>
+                    <circle cx="100" cy="100" r="7" fill="currentColor" opacity="0.8"/>
+                    <circle cx="200" cy="80" r="7" fill="currentColor" opacity="0.8"/>
+                    <circle cx="300" cy="100" r="7" fill="currentColor" opacity="0.8"/>
+                    <!-- Endpoint nodes -->
+                    <circle cx="60" cy="40" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="120" cy="35" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="170" cy="25" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="230" cy="25" r="5" fill="#2D7D46" opacity="0.9"/>
+                    <circle cx="280" cy="35" r="5" fill="currentColor" opacity="0.5"/>
+                    <circle cx="340" cy="40" r="5" fill="currentColor" opacity="0.5"/>
+                    <!-- Highlight the winning path -->
+                    <path d="M200 180 L200 80 L230 25" stroke="#2D7D46" stroke-width="3" fill="none" stroke-dasharray="5,3"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="section section-problem" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">The Problem with Traditional Development</h2>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Premature Commitment</h3>
+                    <p>Traditional development forces you to pick one approach early and invest heavily before you know if it's right. By the time you discover it's wrong, you've already spent the budget.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>The Cost of Being Wrong</h3>
+                    <p>In software, the cost of a wrong architectural decision compounds over time. What starts as a 2-week detour becomes a 6-month rewrite. Teams learn to avoid risk entirely.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3>Ideas Left on the Table</h3>
+                    <p>When exploration is expensive, organizations become conservative. Moonshot ideas get killed in planning. The unconventional approach never gets tried. Most good ideas die before they're tested.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Theory -->
+    <section class="section section-theory" id="theory">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Real Options: A Better Mental Model</h2>
+            </div>
+            <div class="theory-content">
+                <div class="theory-text">
+                    <p class="theory-lead">
+                        In finance, an <em>option</em> is the right — but not the obligation — to
+                        make a decision later, when you have more information. Options have value
+                        precisely because they let you wait and learn.
+                    </p>
+                    <p>
+                        The same principle applies to software development. When you explore multiple
+                        approaches in parallel, you're buying options. You invest a small amount
+                        upfront to preserve the ability to choose the best path later.
+                    </p>
+                    <p>
+                        This isn't just intuition — it's established economic theory. Black-Scholes,
+                        the Nobel Prize-winning options pricing model, can be adapted to value
+                        technological flexibility. What follows is a simplified framework for
+                        practical use.
+                    </p>
+                </div>
+                <div class="theory-formula">
+                    <div class="formula-box">
+                        <p class="formula-label">Simplified Option Value</p>
+                        <div class="formula">
+                            V<sub>option</sub> = P<sub>success</sub>(N) × V<sub>outcome</sub> − C<sub>exploration</sub>(N)
+                        </div>
+                        <div class="formula-terms">
+                            <div class="term">
+                                <span class="term-symbol">N</span>
+                                <span class="term-desc">Number of parallel approaches</span>
+                            </div>
+                            <div class="term">
+                                <span class="term-symbol">P<sub>s</sub>(N)</span>
+                                <span class="term-desc">Probability at least one succeeds</span>
+                            </div>
+                            <div class="term">
+                                <span class="term-symbol">V<sub>o</sub></span>
+                                <span class="term-desc">Value if successful</span>
+                            </div>
+                            <div class="term">
+                                <span class="term-symbol">C<sub>e</sub>(N)</span>
+                                <span class="term-desc">Cost of exploration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="theory-insight">
+                <blockquote>
+                    "The option value comes from the gap between <em>knowing you can</em> and
+                    <em>committing that you will</em>. When that gap is cheap to maintain,
+                    maintain it."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- The AI Shift -->
+    <section class="section section-shift" id="shift">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">AI Changes the Economics</h2>
+            </div>
+            <div class="shift-content">
+                <div class="shift-before">
+                    <h3>Before AI</h3>
+                    <ul class="shift-list">
+                        <li>Exploration is expensive</li>
+                        <li>Each approach needs a senior engineer for days</li>
+                        <li>Parallel paths mean parallel teams</li>
+                        <li>Options are too costly to maintain</li>
+                    </ul>
+                    <div class="shift-verdict negative">Result: Bet early, pray often</div>
+                </div>
+                <div class="shift-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+                <div class="shift-after">
+                    <h3>With AI</h3>
+                    <ul class="shift-list">
+                        <li>Exploration costs approach zero</li>
+                        <li>Generate 5 approaches in an afternoon</li>
+                        <li>One person can maintain many options</li>
+                        <li>Optionality becomes cheap</li>
+                    </ul>
+                    <div class="shift-verdict positive">Result: Explore widely, commit wisely</div>
+                </div>
+            </div>
+            <div class="shift-implications">
+                <h3>What This Unlocks</h3>
+                <div class="implications-grid">
+                    <div class="implication">
+                        <span class="implication-number">10×</span>
+                        <span class="implication-text">More approaches can be evaluated before commitment</span>
+                    </div>
+                    <div class="implication">
+                        <span class="implication-number">80%</span>
+                        <span class="implication-text">Reduction in "wrong path" waste</span>
+                    </div>
+                    <div class="implication">
+                        <span class="implication-number">∞</span>
+                        <span class="implication-text">Moonshot ideas that can finally be tested</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="section section-calculator" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Calculate Your Option Value</h2>
+            </div>
+            <p class="calculator-intro">
+                Adjust the sliders to match your scenario. The calculator shows how
+                parallel exploration changes your expected value.
+            </p>
+            <div class="calculator-wrapper">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="uncertainty">
+                            <span class="input-label">Uncertainty Level</span>
+                            <span class="input-help">How likely is a single approach to fail?</span>
+                        </label>
+                        <input type="range" id="uncertainty" min="10" max="90" value="60">
+                        <div class="input-value"><span id="uncertainty-value">60</span>% failure rate per approach</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="approaches">
+                            <span class="input-label">Number of Approaches</span>
+                            <span class="input-help">How many parallel paths to explore?</span>
+                        </label>
+                        <input type="range" id="approaches" min="1" max="10" value="3">
+                        <div class="input-value"><span id="approaches-value">3</span> parallel approaches</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="exploration-cost">
+                            <span class="input-label">Cost per Exploration</span>
+                            <span class="input-help">What does it cost to try one approach?</span>
+                        </label>
+                        <input type="range" id="exploration-cost" min="100" max="50000" step="100" value="2000">
+                        <div class="input-value">$<span id="exploration-cost-value">2,000</span> per approach</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="project-value">
+                            <span class="input-label">Value at Stake</span>
+                            <span class="input-help">What's the project worth if successful?</span>
+                        </label>
+                        <input type="range" id="project-value" min="10000" max="1000000" step="10000" value="200000">
+                        <div class="input-value">$<span id="project-value-value">200,000</span> potential value</div>
+                    </div>
+                </div>
+
+                <div class="calculator-outputs">
+                    <div class="output-primary">
+                        <div class="output-card highlight">
+                            <span class="output-label">Option Value Created</span>
+                            <span class="output-value" id="option-value">$52,800</span>
+                            <span class="output-context">Value of parallel exploration vs. single bet</span>
+                        </div>
+                    </div>
+                    <div class="output-grid">
+                        <div class="output-card">
+                            <span class="output-label">Single Approach</span>
+                            <span class="output-value" id="single-ev">$78,000</span>
+                            <span class="output-context">Expected value</span>
+                        </div>
+                        <div class="output-card">
+                            <span class="output-label">Parallel Exploration</span>
+                            <span class="output-value" id="parallel-ev">$130,800</span>
+                            <span class="output-context">Expected value</span>
+                        </div>
+                        <div class="output-card">
+                            <span class="output-label">Success Probability</span>
+                            <span class="output-value" id="success-prob">93.6%</span>
+                            <span class="output-context">With parallel approaches</span>
+                        </div>
+                        <div class="output-card">
+                            <span class="output-label">ROI on Exploration</span>
+                            <span class="output-value" id="roi">880%</span>
+                            <span class="output-context">Return on exploration cost</span>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="comparison-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section section-cases" id="cases">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Real-World Examples</h2>
+            </div>
+            <div class="cases-grid">
+                <article class="case-card">
+                    <div class="case-header">
+                        <span class="case-category">Architecture Decision</span>
+                        <h3>Database Migration Strategy</h3>
+                    </div>
+                    <div class="case-body">
+                        <p>A fintech startup needed to migrate from MongoDB to PostgreSQL. Instead of committing to one migration strategy, they used AI to prototype three approaches in parallel.</p>
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <span class="metric-value">3</span>
+                                <span class="metric-label">approaches tested</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">$8K</span>
+                                <span class="metric-label">exploration cost</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">$180K</span>
+                                <span class="metric-label">wrong-path cost avoided</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-result positive">22× return on exploration</span>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <div class="case-header">
+                        <span class="case-category">Feature Implementation</span>
+                        <h3>Real-time Collaboration Engine</h3>
+                    </div>
+                    <div class="case-body">
+                        <p>A SaaS company evaluated CRDTs vs. OT vs. hybrid approaches for their collaboration feature. AI-generated prototypes revealed unexpected tradeoffs invisible in design docs.</p>
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <span class="metric-value">5</span>
+                                <span class="metric-label">approaches tested</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">$12K</span>
+                                <span class="metric-label">exploration cost</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">$340K</span>
+                                <span class="metric-label">refactoring avoided</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-result positive">28× return on exploration</span>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <div class="case-header">
+                        <span class="case-category">Moonshot Test</span>
+                        <h3>Novel Compression Algorithm</h3>
+                    </div>
+                    <div class="case-body">
+                        <p>An engineer had a "crazy idea" for domain-specific compression that leadership would never have approved for development time. AI made it cheap enough to test — and it worked.</p>
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <span class="metric-value">1 day</span>
+                                <span class="metric-label">to prototype</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">$500</span>
+                                <span class="metric-label">exploration cost</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">bandwidth savings</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-result positive">Idea would never have been tried otherwise</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- References -->
+    <section class="section section-references" id="references">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Academic Foundations</h2>
+            </div>
+            <p class="references-intro">
+                This framework isn't speculation — it's built on decades of established economic theory.
+                Real options analysis has been used to value flexibility in industries from oil
+                exploration to pharmaceutical R&D.
+            </p>
+            <div class="references-list">
+                <div class="reference">
+                    <span class="reference-authors">Dixit, A. K., & Pindyck, R. S.</span>
+                    <span class="reference-year">(1994)</span>
+                    <cite class="reference-title">Investment Under Uncertainty</cite>
+                    <span class="reference-source">Princeton University Press</span>
+                </div>
+                <div class="reference">
+                    <span class="reference-authors">Black, F., & Scholes, M.</span>
+                    <span class="reference-year">(1973)</span>
+                    <cite class="reference-title">The Pricing of Options and Corporate Liabilities</cite>
+                    <span class="reference-source">Journal of Political Economy, 81(3), 637-654</span>
+                </div>
+                <div class="reference">
+                    <span class="reference-authors">Myers, S. C.</span>
+                    <span class="reference-year">(1977)</span>
+                    <cite class="reference-title">Determinants of Corporate Borrowing</cite>
+                    <span class="reference-source">Journal of Financial Economics, 5(2), 147-175</span>
+                </div>
+                <div class="reference">
+                    <span class="reference-authors">Trigeorgis, L.</span>
+                    <span class="reference-year">(1996)</span>
+                    <cite class="reference-title">Real Options: Managerial Flexibility and Strategy in Resource Allocation</cite>
+                    <span class="reference-source">MIT Press</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo">Option Value</span>
+                    <p>Quantifying what others only hand-wave about.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#theory">Theory</a>
+                    <a href="#calculator">Calculator</a>
+                    <a href="#cases">Case Studies</a>
+                    <a href="#references">References</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024. Built to make the case for smarter exploration.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
