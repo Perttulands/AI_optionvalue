@@ -352,6 +352,56 @@ em {
     color: var(--color-text-muted);
 }
 
+/* Theory Types Grid */
+.theory-types {
+    margin-bottom: var(--space-3xl);
+}
+
+.theory-types h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xl);
+}
+
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+
+.type-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-lg);
+    border-radius: 2px;
+}
+
+.type-card h4 {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--color-positive);
+}
+
+.type-card p {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .types-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .types-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .theory-insight {
     max-width: var(--content-width);
     margin: 0 auto;
