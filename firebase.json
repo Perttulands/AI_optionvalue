@@ -1,0 +1,29 @@
+{
+  "hosting": {
+    "site": "aioptionvalue",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/.beads/**",
+      "**/node_modules/**",
+      "content/**",
+      "AGENTS.md",
+      "PLAN.md",
+      "README.md",
+      "*.sock"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
+    ]
+  }
+}

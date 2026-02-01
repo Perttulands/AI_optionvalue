@@ -34,9 +34,14 @@
      * Format number as currency
      */
     function formatCurrency(value) {
-        if (Math.abs(value) >= 1000000) {
+        const absValue = Math.abs(value);
+        if (absValue >= 1000000000) {
+            return '$' + (value / 1000000000).toFixed(2) + 'B';
+        }
+        if (absValue >= 1000000) {
             return '$' + (value / 1000000).toFixed(1) + 'M';
-        } else if (Math.abs(value) >= 1000) {
+        }
+        if (absValue >= 1000) {
             return '$' + Math.round(value).toLocaleString();
         }
         return '$' + Math.round(value).toLocaleString();
@@ -55,6 +60,26 @@
     function formatPercent(value) {
         return (value * 100).toFixed(1) + '%';
     }
+
+    /**
+     * Exponential scaling for sliders (log-like response)
+     */
+    function scaleExp(value, min, max) {
+        const clamped = Math.min(Math.max(value, 0), 100);
+        const ratio = max / min;
+        return min * Math.pow(ratio, clamped / 100);
+    }
+
+    const sliderRanges = {
+        explorationCost: {
+            min: 100,
+            max: 5000000
+        },
+        projectValue: {
+            min: 10000,
+            max: 1000000000
+        }
+    };
 
     /**
      * Calculate probability that at least one approach succeeds
@@ -107,8 +132,8 @@
         return {
             failureRate: parseInt(inputs.uncertainty.value) / 100,
             numApproaches: parseInt(inputs.approaches.value),
-            explorationCost: parseInt(inputs.explorationCost.value),
-            projectValue: parseInt(inputs.projectValue.value)
+            explorationCost: scaleExp(parseInt(inputs.explorationCost.value), sliderRanges.explorationCost.min, sliderRanges.explorationCost.max),
+            projectValue: scaleExp(parseInt(inputs.projectValue.value), sliderRanges.projectValue.min, sliderRanges.projectValue.max)
         };
     }
 

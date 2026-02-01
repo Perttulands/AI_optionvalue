@@ -12,6 +12,9 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/og-image.png">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +31,12 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <span class="logo">Option Value</span>
+                <span class="logo">AI Unlocks Option Value</span>
                 <nav class="nav">
                     <a href="#theory">Theory</a>
                     <a href="#calculator">Calculator</a>
                     <a href="#cases">Case Studies</a>
+                    <a href="#cta">Get Help</a>
                 </nav>
             </div>
         </div>
@@ -45,43 +49,66 @@
                 <p class="hero-kicker">Real Options Theory Meets AI-Enabled R&D</p>
                 <h1 class="hero-headline">The Hidden Value of<br>Exploring in Parallel</h1>
                 <p class="hero-subhead">
-                    When AI cuts the cost of prototyping by 75%, the question shifts from
-                    "can we afford to try this?" to "how many options should we hold?"
-                    This calculator quantifies the answer.
+                    AI slashes prototype costs by 90% and compresses weeks into minutes.
+                    When trying is nearly free, the winning move is to try more.
+                    This calculator shows exactly how much that's worth.
                 </p>
                 <a href="#calculator" class="hero-cta">Try the Calculator</a>
             </div>
             <div class="hero-visual">
-                <svg viewBox="0 0 400 300" class="option-tree">
-                    <!-- Main trunk -->
-                    <path d="M200 280 L200 180" stroke="currentColor" stroke-width="3" fill="none"/>
-                    <!-- First branch level -->
-                    <path d="M200 180 L100 100" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                    <path d="M200 180 L200 80" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                    <path d="M200 180 L300 100" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                    <!-- Second branch level - left -->
-                    <path d="M100 100 L60 40" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
-                    <path d="M100 100 L120 35" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
-                    <!-- Second branch level - center -->
-                    <path d="M200 80 L170 25" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
-                    <path d="M200 80 L230 25" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
-                    <!-- Second branch level - right -->
-                    <path d="M300 100 L280 35" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
-                    <path d="M300 100 L340 40" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7"/>
-                    <!-- Nodes -->
-                    <circle cx="200" cy="180" r="8" fill="currentColor"/>
-                    <circle cx="100" cy="100" r="7" fill="currentColor" opacity="0.8"/>
-                    <circle cx="200" cy="80" r="7" fill="currentColor" opacity="0.8"/>
-                    <circle cx="300" cy="100" r="7" fill="currentColor" opacity="0.8"/>
-                    <!-- Endpoint nodes -->
-                    <circle cx="60" cy="40" r="5" fill="currentColor" opacity="0.5"/>
-                    <circle cx="120" cy="35" r="5" fill="currentColor" opacity="0.5"/>
-                    <circle cx="170" cy="25" r="5" fill="currentColor" opacity="0.5"/>
-                    <circle cx="230" cy="25" r="5" fill="#2D7D46" opacity="0.9"/>
-                    <circle cx="280" cy="35" r="5" fill="currentColor" opacity="0.5"/>
-                    <circle cx="340" cy="40" r="5" fill="currentColor" opacity="0.5"/>
-                    <!-- Highlight the winning path -->
-                    <path d="M200 180 L200 80 L230 25" stroke="#2D7D46" stroke-width="3" fill="none" stroke-dasharray="5,3"/>
+                <!-- Parallel experiments: 5 lanes, 1 winner -->
+                <svg viewBox="0 0 400 320" class="option-tree" aria-label="Five parallel experiments, one succeeds">
+                    <defs>
+                        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                            <path d="M0,0 L6,3 L0,6 Z" fill="currentColor"/>
+                        </marker>
+                        <marker id="arrow-win" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                            <path d="M0,0 L6,3 L0,6 Z" fill="#0D7680"/>
+                        </marker>
+                    </defs>
+                    <!-- Starting point -->
+                    <text x="200" y="295" text-anchor="middle" font-size="13" fill="currentColor" font-family="Inter, sans-serif" font-weight="600">START</text>
+                    <circle cx="200" cy="270" r="10" fill="currentColor"/>
+                    <!-- Lane lines fanning out -->
+                    <line x1="200" y1="260" x2="60" y2="140" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                    <line x1="200" y1="260" x2="115" y2="140" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                    <line x1="200" y1="260" x2="200" y2="140" stroke="#0D7680" stroke-width="3"/>
+                    <line x1="200" y1="260" x2="285" y2="140" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                    <line x1="200" y1="260" x2="340" y2="140" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                    <!-- Experiment boxes -->
+                    <g opacity="0.55">
+                        <rect x="35" y="100" width="50" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <text x="60" y="125" text-anchor="middle" font-size="11" fill="currentColor" font-family="Inter, sans-serif">Try 1</text>
+                        <line x1="60" y1="60" x2="60" y2="100" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <text x="60" y="50" text-anchor="middle" font-size="10" fill="#990F3D" font-family="Inter, sans-serif">FAIL</text>
+                    </g>
+                    <g opacity="0.55">
+                        <rect x="90" y="100" width="50" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <text x="115" y="125" text-anchor="middle" font-size="11" fill="currentColor" font-family="Inter, sans-serif">Try 2</text>
+                        <line x1="115" y1="60" x2="115" y2="100" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <text x="115" y="50" text-anchor="middle" font-size="10" fill="#990F3D" font-family="Inter, sans-serif">FAIL</text>
+                    </g>
+                    <!-- Winner -->
+                    <g>
+                        <rect x="175" y="100" width="50" height="40" rx="4" fill="#E6F4F5" stroke="#0D7680" stroke-width="2"/>
+                        <text x="200" y="125" text-anchor="middle" font-size="11" fill="#0D7680" font-family="Inter, sans-serif" font-weight="600">Try 3</text>
+                        <line x1="200" y1="60" x2="200" y2="100" stroke="#0D7680" stroke-width="2" marker-end="url(#arrow-win)"/>
+                        <text x="200" y="45" text-anchor="middle" font-size="12" fill="#0D7680" font-family="Inter, sans-serif" font-weight="700">SUCCESS</text>
+                        <circle cx="200" cy="25" r="8" fill="#0D7680"/>
+                        <path d="M196 25 l3 3 l6 -6" stroke="#fff" stroke-width="2" fill="none"/>
+                    </g>
+                    <g opacity="0.55">
+                        <rect x="260" y="100" width="50" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <text x="285" y="125" text-anchor="middle" font-size="11" fill="currentColor" font-family="Inter, sans-serif">Try 4</text>
+                        <line x1="285" y1="60" x2="285" y2="100" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <text x="285" y="50" text-anchor="middle" font-size="10" fill="#990F3D" font-family="Inter, sans-serif">FAIL</text>
+                    </g>
+                    <g opacity="0.55">
+                        <rect x="315" y="100" width="50" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <text x="340" y="125" text-anchor="middle" font-size="11" fill="currentColor" font-family="Inter, sans-serif">Try 5</text>
+                        <line x1="340" y1="60" x2="340" y2="100" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <text x="340" y="50" text-anchor="middle" font-size="10" fill="#990F3D" font-family="Inter, sans-serif">FAIL</text>
+                    </g>
                 </svg>
             </div>
         </div>
@@ -184,18 +211,43 @@
                 <h3>Types of Real Options</h3>
                 <div class="types-grid">
                     <div class="type-card">
+                        <div class="type-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M12 7v6l4 2"/>
+                            </svg>
+                        </div>
                         <h4>Option to Defer</h4>
                         <p>Wait for more information before committing. Valuable when uncertainty is high and the opportunity won't disappear.</p>
                     </div>
                     <div class="type-card">
+                        <div class="type-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 16l6-6 4 4 6-6"/>
+                                <path d="M14 8h6v6"/>
+                            </svg>
+                        </div>
                         <h4>Option to Expand</h4>
                         <p>Scale up if initial results are promising. A small pilot buys you the right to a larger investment.</p>
                     </div>
                     <div class="type-card">
+                        <div class="type-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 5l14 14"/>
+                                <path d="M19 5L5 19"/>
+                            </svg>
+                        </div>
                         <h4>Option to Abandon</h4>
                         <p>Cut losses early. The ability to walk away limits downside and makes bold experiments rational.</p>
                     </div>
                     <div class="type-card">
+                        <div class="type-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 18h4v-4H6z"/>
+                                <path d="M14 14h4V6h-4z"/>
+                                <path d="M10 14l4-4"/>
+                            </svg>
+                        </div>
                         <h4>Staged Investment</h4>
                         <p>Break projects into phases. Each stage is an option to continue or stop based on what you learn.</p>
                     </div>
@@ -236,10 +288,10 @@
                 <div class="shift-after">
                     <h3>With AI</h3>
                     <ul class="shift-list">
-                        <li>Developers complete tasks 50%+ faster</li>
-                        <li>Test features in hours at near-zero cost</li>
-                        <li>One person explores many paths in parallel</li>
-                        <li>Moonshots become rational to attempt</li>
+                        <li>Iteration speed improves 75–90% with agentic workflows</li>
+                        <li>Prototype costs drop ~90% (minutes instead of weeks)</li>
+                        <li>One small team explores many paths in parallel</li>
+                        <li>Moonshots become economically rational to test</li>
                     </ul>
                     <div class="shift-verdict positive">Result: More options, better decisions</div>
                 </div>
@@ -248,16 +300,16 @@
                 <h3>The Math of More Attempts</h3>
                 <div class="implications-grid">
                     <div class="implication">
-                        <span class="implication-number">50%+</span>
-                        <span class="implication-text">Faster task completion with AI coding assistants</span>
+                        <span class="implication-number">75–90%</span>
+                        <span class="implication-text">Faster iteration speed in early-stage prototyping</span>
                     </div>
                     <div class="implication">
                         <span class="implication-number">67%</span>
                         <span class="implication-text">Success probability with 5 tries at 20% each</span>
                     </div>
                     <div class="implication">
-                        <span class="implication-number">4×</span>
-                        <span class="implication-text">Expected value improvement (see worked examples)</span>
+                        <span class="implication-number">8×+</span>
+                        <span class="implication-text">Expected value improvement when costs collapse</span>
                     </div>
                 </div>
             </div>
@@ -299,18 +351,18 @@
                     <div class="input-group">
                         <label for="exploration-cost">
                             <span class="input-label">Cost per Attempt (C)</span>
-                            <span class="input-help">Investment required for each exploration</span>
+                            <span class="input-help">Investment required for each exploration (log scale)</span>
                         </label>
-                        <input type="range" id="exploration-cost" min="100" max="50000" step="100" value="2000">
+                        <input type="range" id="exploration-cost" min="0" max="100" step="1" value="32">
                         <div class="input-value">$<span id="exploration-cost-value">2,000</span> per approach</div>
                     </div>
 
                     <div class="input-group">
                         <label for="project-value">
                             <span class="input-label">Success Payoff (V)</span>
-                            <span class="input-help">Value captured if at least one approach succeeds</span>
+                            <span class="input-help">Value captured if at least one approach succeeds (log scale)</span>
                         </label>
-                        <input type="range" id="project-value" min="10000" max="1000000" step="10000" value="200000">
+                        <input type="range" id="project-value" min="0" max="100" step="1" value="33">
                         <div class="input-value">$<span id="project-value-value">200,000</span> potential value</div>
                     </div>
                 </div>
@@ -358,7 +410,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-number">05</span>
-                <h2 class="section-title">Worked Examples</h2>
+                <h2 class="section-title">Examples of Theory Application</h2>
             </div>
             <div class="cases-grid">
                 <article class="case-card">
@@ -368,24 +420,24 @@
                     </div>
                     <div class="case-body">
                         <p><strong>Traditional:</strong> 20% success rate, $1M payoff, $200K per prototype. Expected value = 0.2 × $1M − $200K = <strong>$0</strong> (breakeven).</p>
-                        <p><strong>With AI:</strong> Cost drops 75% to $50K. Same $200K budget = 4 parallel trials. P(≥1) = 1 − 0.8⁴ = <strong>59%</strong>.</p>
+                        <p><strong>With AI:</strong> Cost drops ~90% to $20K. Same $200K budget = 10 parallel trials. P(≥1) = 1 − 0.8¹⁰ = <strong>89%</strong>.</p>
                         <div class="case-metrics">
                             <div class="metric">
-                                <span class="metric-value">4</span>
+                                <span class="metric-value">10</span>
                                 <span class="metric-label">parallel trials</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-value">59%</span>
+                                <span class="metric-value">89%</span>
                                 <span class="metric-label">success probability</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-value">$390K</span>
+                                <span class="metric-value">$690K</span>
                                 <span class="metric-label">expected value gain</span>
                             </div>
                         </div>
                     </div>
                     <div class="case-footer">
-                        <span class="case-result positive">From breakeven to +$390K option value</span>
+                        <span class="case-result positive">From breakeven to +$690K option value</span>
                     </div>
                 </article>
 
@@ -395,9 +447,9 @@
                         <h3>Product Concept Validation</h3>
                     </div>
                     <div class="case-body">
-                        <p><strong>Setup:</strong> 10% chance each concept resonates with customers. $5M market value if one hits.</p>
-                        <p><strong>Traditional (2 concepts @ $100K):</strong> P(≥1) = 19%, EV = <strong>$750K</strong>.</p>
-                        <p><strong>AI-enabled (10 concepts @ $20K):</strong> P(≥1) = 65%, EV = <strong>$3.05M</strong>.</p>
+                        <p><strong>Setup:</strong> 10% chance each concept resonates with customers. $10M market value if one hits.</p>
+                        <p><strong>Traditional (2 concepts @ $100K):</strong> P(≥1) = 19%, EV = <strong>$1.7M</strong>.</p>
+                        <p><strong>AI-enabled (10 concepts @ $20K):</strong> P(≥1) = 65%, EV = <strong>$6.3M</strong>.</p>
                         <div class="case-metrics">
                             <div class="metric">
                                 <span class="metric-value">10</span>
@@ -408,13 +460,13 @@
                                 <span class="metric-label">success probability</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-value">4×</span>
+                                <span class="metric-value">3.7×</span>
                                 <span class="metric-label">improvement in EV</span>
                             </div>
                         </div>
                     </div>
                     <div class="case-footer">
-                        <span class="case-result positive">Same budget, 4× the expected value</span>
+                        <span class="case-result positive">Same budget, 3.7× the expected value</span>
                     </div>
                 </article>
 
@@ -425,24 +477,24 @@
                     </div>
                     <div class="case-body">
                         <p>Traditionally, "moonshots" with 5% success rates were dismissed — the cost of failure was too high to justify attempting.</p>
-                        <p>With AI, if a prototype costs $5K and the payoff is $500K, the expected value is 0.05 × $500K − $5K = <strong>$20K</strong>. Worth taking.</p>
+                        <p>With AI, if a prototype costs $250K and the payoff is $50M, the expected value is 0.05 × $50M − $250K = <strong>$2.25M</strong>. Worth taking.</p>
                         <div class="case-metrics">
                             <div class="metric">
                                 <span class="metric-value">5%</span>
                                 <span class="metric-label">success rate</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-value">$5K</span>
+                                <span class="metric-value">$250K</span>
                                 <span class="metric-label">cost to try</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-value">$20K</span>
+                                <span class="metric-value">$2.25M</span>
                                 <span class="metric-label">positive EV</span>
                             </div>
                         </div>
                     </div>
                     <div class="case-footer">
-                        <span class="case-result positive">Low odds, but math says try it</span>
+                        <span class="case-result positive">Low odds, but the payoff justifies the attempt</span>
                     </div>
                 </article>
             </div>
@@ -465,32 +517,54 @@
                 <div class="reference">
                     <span class="reference-authors">Dixit, A. K., & Pindyck, R. S.</span>
                     <span class="reference-year">(1994)</span>
-                    <cite class="reference-title">Investment Under Uncertainty</cite>
+                    <cite class="reference-title"><a href="https://press.princeton.edu/books/hardcover/9780691034102/investment-under-uncertainty" target="_blank" rel="noopener">Investment Under Uncertainty</a></cite>
                     <span class="reference-source">Princeton University Press — The foundational text on real options and irreversible investment decisions</span>
                 </div>
                 <div class="reference">
                     <span class="reference-authors">Myers, S. C.</span>
                     <span class="reference-year">(1977)</span>
-                    <cite class="reference-title">Determinants of Corporate Borrowing</cite>
+                    <cite class="reference-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/0304405X77900150" target="_blank" rel="noopener">Determinants of Corporate Borrowing</a></cite>
                     <span class="reference-source">Journal of Financial Economics, 5(2), 147-175 — Introduced the concept of "growth options" in R&D</span>
                 </div>
                 <div class="reference">
                     <span class="reference-authors">Black, F., & Scholes, M.</span>
                     <span class="reference-year">(1973)</span>
-                    <cite class="reference-title">The Pricing of Options and Corporate Liabilities</cite>
+                    <cite class="reference-title"><a href="https://www.jstor.org/stable/1831029" target="_blank" rel="noopener">The Pricing of Options and Corporate Liabilities</a></cite>
                     <span class="reference-source">Journal of Political Economy, 81(3), 637-654 — Nobel Prize-winning options pricing framework</span>
                 </div>
                 <div class="reference">
                     <span class="reference-authors">Trigeorgis, L.</span>
                     <span class="reference-year">(1996)</span>
-                    <cite class="reference-title">Real Options: Managerial Flexibility and Strategy in Resource Allocation</cite>
+                    <cite class="reference-title"><a href="https://books.google.com/books?id=z7cQpv4B9JsC" target="_blank" rel="noopener">Real Options: Managerial Flexibility and Strategy in Resource Allocation</a></cite>
                     <span class="reference-source">MIT Press — Comprehensive guide to applying real options in strategic planning</span>
                 </div>
                 <div class="reference">
                     <span class="reference-authors">Luehrman, T. A.</span>
                     <span class="reference-year">(1998)</span>
-                    <cite class="reference-title">Investment Opportunities as Real Options: Getting Started on the Numbers</cite>
+                    <cite class="reference-title"><a href="https://hbr.org/1998/07/investment-opportunities-as-real-options-getting-started-on-the-numbers" target="_blank" rel="noopener">Investment Opportunities as Real Options: Getting Started on the Numbers</a></cite>
                     <span class="reference-source">Harvard Business Review — Practical introduction to valuing real options in business</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-cta" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <span class="cta-kicker">Put this into practice</span>
+                    <h2>We help teams find the right problems, map the solution space, and validate fast.</h2>
+                    <p>
+                        We partner with leaders who want to turn real options theory into a working innovation
+                        engine. Our process speeds up problem identification and clarification, expands the
+                        solution space, and rapidly validates approaches with AI-assisted prototyping. The
+                        gains are massive because iteration is now measured in minutes, not weeks.
+                    </p>
+                </div>
+                <div class="cta-actions">
+                    <a class="cta-button" href="mailto:perttu.landstrom@solita.fi">Reach out for a working session</a>
+                    <span class="cta-note">We’ll map your option portfolio and quantify where to explore next.</span>
                 </div>
             </div>
         </div>
@@ -501,7 +575,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="logo">Option Value</span>
+                    <span class="logo">AI Unlocks Option Value</span>
                     <p>Quantifying what others only hand-wave about.</p>
                 </div>
                 <div class="footer-links">
